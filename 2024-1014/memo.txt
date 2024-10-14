@@ -1,0 +1,13 @@
+time ./sample         
+Sum = 21.993629
+./sample  7.21s user 0.00s system 99% cpu 7.217 total
+
+time ./pthread-1
+Sum = 21.993629
+./pthread-1  7.22s user 0.00s system 99% cpu 7
+.222 total
+
+time ./pthread-2 
+Sum = 21.993629
+./pthread-2  7.22s user 0.00s system 198% cpu 
+3.632 total
