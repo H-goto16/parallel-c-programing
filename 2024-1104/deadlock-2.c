@@ -23,16 +23,16 @@ void send_1000_A_to_B(void) {
 
 void send_1000_B_to_A(void) {
   while (1) {
+    pthread_mutex_lock(&account_A.mutex);
     pthread_mutex_lock(&account_B.mutex);
     if (account_B.balance >= 1000) {
-      pthread_mutex_lock(&account_A.mutex);
       account_B.balance -= 1000;
       account_A.balance += 1000;
-      pthread_mutex_unlock(&account_A.mutex);
       printf("JPY 1000 send from B to A. (A:%d B:%d)\n", account_A.balance,
              account_B.balance);
     }
     pthread_mutex_unlock(&account_B.mutex);
+    pthread_mutex_unlock(&account_A.mutex);
   }
 }
 
