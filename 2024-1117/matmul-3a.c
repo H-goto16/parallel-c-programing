@@ -14,7 +14,6 @@ void initialize(void) {
 }
 
 void multiply(void) {
-#pragma omp parallel for collapse(2)
   for (int i = 0; i < N; i++) {
     for (int j = 0; j < N; j++) {
       C[i][j] = 0;

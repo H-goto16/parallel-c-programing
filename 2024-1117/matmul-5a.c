@@ -14,8 +14,9 @@ void initialize(void) {
 }
 
 void multiply(void) {
-#pragma omp parallel for collapse(2)
+#pragma omp parallel for num_threads(2)
   for (int i = 0; i < N; i++) {
+#pragma omp parallel for num_threads(2)
     for (int j = 0; j < N; j++) {
       C[i][j] = 0;
       for (int k = 0; k < N; k++) {
